@@ -1,22 +1,21 @@
 import React from 'react';
-import { Formik, FormikHelpers, FormikErrors } from 'formik';
-import { newValidApiKey, isApiErrorCode, ApiErrorCode} from '../utils/utils';
+import { Formik, FormikHelpers, FormikErrors } from 'formik'
+import { newValidApiKey, isApiErrorCode } from '@innexgo/frontend-auth-api';
 
-interface LoginProps {
-  onSuccess?: (apiKey: ApiKey) => void,
-  onFail?: (apiErrorCode: ApiErrorCode) => void
+interface LoginFormProps {
+  onSuccess: (apiKey: ApiKey) => void
 }
 
-function Login(props: LoginProps) {
+function LoginForm(props: LoginFormProps) {
 
-  type LoginValue = {
+  type LoginFormValue = {
     email: string,
     password: string,
   }
 
-  const onSubmit = async (values: LoginValue, { setStatus, setErrors }: FormikHelpers<LoginValue>) => {
+  const onSubmit = async (values: LoginFormValue, { setStatus, setErrors }: FormikHelpers<LoginFormValue>) => {
     // Validate input
-    let errors: FormikErrors<LoginValue> = {};
+    let errors: FormikErrors<LoginFormValue> = {};
     let hasError = false;
     if (values.email === "") {
       errors.email = "Please enter your email";
@@ -58,16 +57,15 @@ function Login(props: LoginProps) {
           break;
         }
       }
-      props.onFail?.();
       return;
     }
 
     // on success set the api key
-    props.onSuccess?.(maybeApiKey);
+    props.onSuccess(maybeApiKey);
   }
 
   return <>
-    <Formik<LoginValue>
+    <Formik<LoginFormValue>
       onSubmit={onSubmit}
       initialStatus=""
       initialValues={{
@@ -79,8 +77,8 @@ function Login(props: LoginProps) {
         <Form
           noValidate
           onSubmit={fprops.handleSubmit} >
-          <Form.Group>
-            <Form.Label>Email</Form.Label>
+          <Form.Group >
+            <Form.Label >Email</Form.Label>
             <Form.Control
               name="email"
               type="email"
@@ -104,7 +102,7 @@ function Login(props: LoginProps) {
             <Form.Control.Feedback type="invalid">{fprops.errors.password}</Form.Control.Feedback>
           </Form.Group>
           <br />
-          <Button type="submit">Login</Button>
+          <button className="btn" type="submit">Login</button>
           <br />
           <Form.Text className="text-danger">{fprops.status}</Form.Text>
           <br />
@@ -117,4 +115,4 @@ function Login(props: LoginProps) {
   </>
 }
 
-export default Login;
+export default LoginForm;

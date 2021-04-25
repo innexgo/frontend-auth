@@ -21,20 +21,34 @@
     "eject": "react-scripts eject"
   },
   "peerDependencies": {
+    "@innexgo/frontend-auth-api": "^0.2.0",
+    "@popperjs/core": "^2.9.1",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/react-router-dom": "^5.2.0",
+    "bootstrap": "^5.0.0-beta3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "local-storage": "^2.0.0",
+    "sass": "^1.32.7",
+    "typescript": "^4.2.4"
+  },
+  "devDependencies": {
+    "@innexgo/frontend-auth-api": "^0.2.0",
+    "@popperjs/core": "^2.9.1",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/react-router-dom": "^5.1.7",
+    "bootstrap": "^5.0.0-beta3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
-    "bootstrap": "^5.0.0-beta3",
-    "popper.js": "^1.16.1"
-  },
-  "dependencies": {
-    "local-storage": "^2.0.0",
-    "@types/react": "^17.0.1",
-    "@types/react-dom": "^17.0.0",
-    "@types/react-router-dom": "^5.1.7",
-    "react-scripts": "4.0.2",
-    "sass": "^1.32.7",
-    "typescript": "^4.2.4"
+    "react-scripts": "4.0.2"
   },
   "eslintConfig": {
     "extends": "react-app"
